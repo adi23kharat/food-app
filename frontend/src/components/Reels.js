@@ -124,7 +124,7 @@ const Reels = ({ videos = [],setVideos }) => {
 
       <div className="bottom-divider" />
       <nav className="bottom-nav">
-        <Link to="/" className="nav-item">
+        <Link to="/home" className="nav-item">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M3 10.5L12 4l9 6.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1V10.5z" stroke="currentColor" strokeWidth="1.2"/></svg>
           <span>home</span>
         </Link>

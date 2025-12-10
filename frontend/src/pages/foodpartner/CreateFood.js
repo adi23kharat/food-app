@@ -63,7 +63,7 @@ const CreateFood = () => {
       setFile(null)
       setPreview(null)
       if (fileRef.current) fileRef.current.value = ''
-      navigate('/')
+      navigate('/home')
       
     } catch (err) {
       console.error(err)

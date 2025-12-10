@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom'
 import UserRegister from '../pages/UserRegister'
 import UserLogin from '../pages/UserLogin'
 import PartnerRegister from '../pages/PartnerRegister'
@@ -13,17 +13,27 @@ const AppRoutes = () => {
   return (
     <Router>
       <Routes>
+
+        {/* Default route → redirect to login */}
+        <Route path="/" element={<Navigate to="/user/login" />} />
+
+        {/* User Routes */}
         <Route path="/user/register" element={<UserRegister />} />
         <Route path="/user/login" element={<UserLogin />} />
+
+        {/* Partner Routes */}
         <Route path="/food-partner/register" element={<PartnerRegister />} />
         <Route path="/food-partner/login" element={<PartnerLogin />} />
-        <Route path='/' element={<Home />}/>
-        <Route path='/saved' element={<Saved />}/>
-        <Route path='/create-food' element= {<CreateFood/>}/>
-        <Route path='/food-partner/:id' element= {<Profile />}/>
+
+        {/* General Pages */}
+        <Route path="/home" element={<Home />} />
+        <Route path="/saved" element={<Saved />} />
+        <Route path="/create-food" element={<CreateFood />} />
+        <Route path="/food-partner/:id" element={<Profile />} />
+
       </Routes>
     </Router>
-  )         
+  )
 }
 
 export default AppRoutes
