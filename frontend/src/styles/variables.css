@@ -1,0 +1,51 @@
+:root{
+  --radius: 14px;
+  --shadow: 0 8px 30px rgba(11,17,28,0.12);
+  --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --accent: #ff5a3c; /* warm tomato */
+  --accent-2: #ffd66b; /* mustard/yellow */
+  --accent-3: #ff8a4a; /* secondary warm */
+  --bg-pattern: radial-gradient(1200px 600px at 10% 10%, rgba(255,90,60,0.06), transparent 8%), radial-gradient(800px 400px at 90% 90%, rgba(255,214,107,0.04), transparent 12%);
+  --transition-fast: 180ms ease;
+  --transition-medium: 280ms ease;
+  color-scheme: light;
+  /* UI surface variables */
+  --card-border: rgba(11,17,28,0.06);
+  --input-bg: rgba(255,255,255,0.6);
+  --meta-theme-light: #fff6f2;
+  --meta-theme-dark: #071017;
+}
+
+/* Light theme defaults */
+:root{
+  --bg: #fff6f2;
+  --card: #ffffff;
+  --text: #1b2430;
+  --muted: #6b7280;
+}
+
+/* Dark theme overrides when system prefers dark */
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg: #071017;
+    --card: #0b1a22;
+    --text: #e6eef8;
+    --muted: #9aa6b2;
+    --accent: #ff7b4b;
+    --accent-2: #ffb86b;
+    color-scheme: dark;
+    --card-border: rgba(255,255,255,0.06);
+    --input-bg: rgba(255,255,255,0.03);
+  }
+}
+
+/* Accessibility: force light/dark when user prefers explicit color-scheme */
+@media (prefers-color-scheme: light){
+  :root{ color-scheme: light; }
+}
+@media (prefers-color-scheme: dark){
+  :root{ color-scheme: dark; }
+}
