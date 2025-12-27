@@ -13,15 +13,13 @@ const UserRegister = () => {
     const email = e.target.email.value
     const password = e.target.password.value
     
-    const response = await axios.post('http://localhost:5000/user/register',{
+    await axios.post('http://localhost:5000/user/register',{
       fullname,
       email,
       password
     },{
       withCredentials:true
     })
-
-    // console.log(response.data)
 
     navigate('/home')
     

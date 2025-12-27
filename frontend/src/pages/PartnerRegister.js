@@ -10,15 +10,13 @@ const PartnerRegister = () => {
     const name = e.target.name.value
     const email = e.target.email.value
     const password = e.target.password.value
-    const response = await axios.post('http://localhost:5000/foodpartner/register',{
+    await axios.post('http://localhost:5000/foodpartner/register',{
       name,
       email,
       password
     },{
       withCredentials:true
     })
-    // console.log(response.data)
-    // console.log('hi')
     navigate('/create-food')
   }
   return (

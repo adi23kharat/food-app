@@ -9,13 +9,12 @@ const PartnerLogin = () => {
     e.preventDefault();
     const email = e.target.email.value
     const password = e.target.password.value
-    const response = await axios.post('http://localhost:5000/food-partner/login',{
+    await axios.post('http://localhost:5000/food-partner/login',{
       email,
       password
     },{
       withCredentials:true
     })
-    // console.log(response.data)
     navigate('/create-food')
   }
   return (

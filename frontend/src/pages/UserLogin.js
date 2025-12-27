@@ -11,14 +11,12 @@ const UserLogin = () => {
     const email = e.target.email.value
     const password = e.target.password.value
 
-    const response = await axios.post('http://localhost:5000/user/login',{
+    await axios.post('http://localhost:5000/user/login',{
       email,
       password
     },{
       withCredentials:true
     })
-
-    // console.log(response.data)
 
     navigate('/home')
   }
