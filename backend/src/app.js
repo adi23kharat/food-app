@@ -12,8 +12,7 @@ const app = express();
 app.use(
   cors({
     origin: [
-      "http://localhost:3000",
-      "https://food-app-reel-style.vercel.app"   // your deployed frontend
+      "http://localhost:3000"  // your deployed frontend
     ],
     credentials: true, // allows cookies
     methods: ["GET", "POST", "PUT", "DELETE"],

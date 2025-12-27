@@ -2,7 +2,7 @@
   "name": "backend",
   "version": "1.0.0",
   "type": "module",
-  "main": "api/index.js",
+  "main": "server.js",
   "dependencies": {
     "@imagekit/nodejs": "^7.1.1",
     "bcrypt": "^6.0.0",

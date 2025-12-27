@@ -35,17 +35,18 @@ export const registerUser = async(req,res)=>{
   })
 }
 export const loginUser = async(req,res)=>{
-
+  console.log(req.body)
   const {email,password} = req.body
+  // console.log(email)
 
   const user = await userModel.findOne({email})
   if(!user){
     res.status(401).json({
       message:"Invalid email,password"
     })
-  }
-
-  const isPasswordValid = await bcrypt.compare(password,user.password)
+  } 
+  console.log(user)
+  const isPasswordValid =  bcrypt.compare(password,user.password)
   if(!isPasswordValid){
     res.status(401).json({
       message:"Invalid email,password"
@@ -70,6 +71,8 @@ export const logoutUser = (req,res)=>{
     message: " User logout Successfully!!!"
   })
 }
+
+
 
 export const registerFoodPartner = async(req,res)=>{
 
