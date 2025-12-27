@@ -11,14 +11,19 @@ const UserLogin = () => {
     const email = e.target.email.value
     const password = e.target.password.value
 
-    await axios.post('http://localhost:5000/user/login',{
-      email,
-      password
-    },{
-      withCredentials:true
-    })
+    try {
+      await axios.post('http://localhost:5000/user/login',{
+        email,
+        password
+      },{
+        withCredentials:true
+      })
 
-    navigate('/home')
+      navigate('/home')
+    } catch (err) {
+      console.error('Login failed:', err?.response || err.message || err)
+      alert('Login failed. Please check your credentials and network.')
+    }
   }
   return (
     <div className="auth-page">
@@ -29,12 +34,12 @@ const UserLogin = () => {
         <form className="auth-form" onSubmit={submitHandler}>
           <label className="auth-label">
             Email
-            <input className="auth-input" type="email" name='email' placeholder="you@example.com" />
+            <input className="auth-input" type="email" name='email' placeholder="you@example.com" autocomplete="email" />
           </label>
 
           <label className="auth-label">
             Password
-            <input className="auth-input" type="password" name='password' placeholder="Your password" />
+            <input className="auth-input" type="password" name='password' placeholder="Your password" autocomplete="current-password" />
           </label>
 
           <label className="auth-row">
