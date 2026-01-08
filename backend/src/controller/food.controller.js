@@ -6,10 +6,10 @@ import { v4 as uuidv4 } from 'uuid';
 
 export const createFood = async(req,res)=>{
 
-  // console.log(req.foodpartner)
+  console.log(req.foodpartner)
 
-  // console.log(req.body)
-  // console.log(req.file)  // returns file buffer
+  console.log(req.body)
+  console.log(req.file)  // returns file buffer
 
   const fileUploadResult = await uploadFile(req.file.buffer,uuidv4())
   
