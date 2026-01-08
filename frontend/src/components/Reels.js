@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from 'react'
 import '../styles/reels.css'
-import { useNavigate,Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import BookmarkIcon from './BookmarkIcon'
 import LogoutButton from './LogoutButton'
 import axios from 'axios'

@@ -9,11 +9,20 @@ import cors from "cors";
 const app = express();
 
 // ---------- CORS SETTINGS ----------
+const allowedOrigins = [
+  "http://localhost:3000",
+  process.env.FRONTEND_URL || "" // deployed frontend URL from environment
+];
+
 app.use(
   cors({
-    origin: [
-      "http://localhost:3000"  // your deployed frontend
-    ],
+    origin: (origin, callback) => {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
     credentials: true, // allows cookies
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"]

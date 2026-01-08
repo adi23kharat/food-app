@@ -12,18 +12,21 @@ const UserRegister = () => {
     const fullname = e.target.fullname.value
     const email = e.target.email.value
     const password = e.target.password.value
-    
-    const response = await axios.post('http://localhost:5000/user/register',{
-      fullname,
-      email,
-      password
-    },{
-      withCredentials:true
-    })
+    try {
+      await axios.post('http://localhost:5000/user/register',{
+        fullname,
+        email,
+        password
+      },{
+        withCredentials:true
+      })
 
-    // console.log(response.data)
-
-    navigate('/home')
+      navigate('/home')
+    } catch (err) {
+      console.error('Registration failed:', err?.response || err.message || err)
+      // provide user-facing feedback (adjust as desired)
+      alert('Registration failed. Please check your network or disable adblockers and try again.')
+    }
     
   }
 
@@ -36,17 +39,17 @@ const UserRegister = () => {
         <form className="auth-form" onSubmit={submitHandler}>
           <label className="auth-label">
             Full name
-            <input className="auth-input" name='fullname' type="text" placeholder="Jane Doe" />
+            <input className="auth-input" name='fullname' type="text" placeholder="Jane Doe" autocomplete="name" />
           </label>
 
           <label className="auth-label">
             Email
-            <input className="auth-input" type="email" name='email' placeholder="you@example.com" />
+            <input className="auth-input" type="email" name='email' placeholder="you@example.com" autocomplete="email" />
           </label>
 
           <label className="auth-label">
             Password
-            <input className="auth-input" type="password" name='password'placeholder="Create a password" />
+            <input className="auth-input" type="password" name='password' placeholder="Create a password" autocomplete="new-password" />
           </label>
 
           {/* Confirm Password removed per request */}
